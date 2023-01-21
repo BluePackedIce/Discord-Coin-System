@@ -12,7 +12,7 @@ give_credit(add)
     let now_credit = parseInt(this.credit);
     now_credit += add_;
     this.credit = now_credit;
-    console.log(`${add}ジェムが追加されました\n合計：${this.credit}`);
+    console.log(`${add}コインが追加されました\n合計：${this.credit}`);
 }
 };
 

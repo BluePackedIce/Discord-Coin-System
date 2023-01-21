@@ -12,8 +12,6 @@ module.exports = {
 		let a = await Serializer.Deserialize(id);
 		let userdata_ = new userdata();
 		userdata_ = a;
-		//await interaction.reply(`GamerTag:${JSON.stringify(a)}`);
 		await interaction.reply(`${interaction.user.username}さん\n**所有コイン<a:z_:1054743019129147482>**:${userdata_.credit}`);
-		//await interaction.reply(`ファイルを生成中身：${a.gamertag}`);
 	},
 };

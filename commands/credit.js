@@ -20,7 +20,7 @@ module.exports = {
 	async execute(interaction) 
 	{
 		const target = interaction.options.getUser('target');//送信されるプレイヤー
-		const count = interaction.options.getString('count');//送信ジェム個数
+		const count = interaction.options.getString('count');//送信コイン枚数
 		let id = target.id;//送信されるプレイヤーのID
 		let a = await Serializer.Deserialize(id)
 		let readclass = Object.assign(new userdata(),a);
@@ -30,7 +30,6 @@ module.exports = {
 		readclass.give_credit(count);//count分を追加する
 		
 		Serializer.Serialize(id,readclass);//ファイル保存
-		//await interaction.reply(`GamerTag:${JSON.stringify(a)}`);
 		await interaction.reply(`
 		送信しました:${target.username}
 		送信したコイン:${count}

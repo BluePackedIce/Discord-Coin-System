@@ -5,16 +5,16 @@ const Serializer = require('../File_Function/Serializer');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('credit')
-		.setDescription('指定ユーザーにジェムを追加します')
+		.setDescription('指定ユーザーにコインを追加します')
 		.addUserOption(option =>
 			option
 				.setName('target')
-				.setDescription('ジェムを追加する対象を選択')
+				.setDescription('コインを追加する対象を選択')
 				.setRequired(true))
 		.addStringOption(option =>
 			option
 				.setName('count')
-				.setDescription('追加するジェム数')
+				.setDescription('追加するコイン枚数')
 				.setRequired(true)),
 
 	async execute(interaction) 
@@ -26,15 +26,14 @@ module.exports = {
 		let readclass = Object.assign(new userdata(),a);
 		console.log(readclass)
 
-		let gem = readclass.credit; //ジェム一時保存
+		let gem = readclass.credit; //コイン一時保存
 		readclass.give_credit(count);//count分を追加する
 		
 		Serializer.Serialize(id,readclass);//ファイル保存
 		//await interaction.reply(`GamerTag:${JSON.stringify(a)}`);
 		await interaction.reply(`
 		送信しました:${target.username}
-		送信したジェム:${count}
-		所有ジェム数：${readclass.credit}`);
-		//await interaction.reply(`ファイルを生成中身：${a.gamertag}`);
+		送信したコイン:${count}
+		所有コイン数：${readclass.credit}`);
 	},
 };

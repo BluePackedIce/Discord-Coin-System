@@ -14,11 +14,6 @@ give_credit(add)
     this.credit = now_credit;
     console.log(`${add}ジェムが追加されました\n合計：${this.credit}`);
 }
-change_rank(newrank)
-{
-    this.rank = newrank;
-    console.log(`${newrank}に変更しました`);
-}
 };
 
 module.exports = server_user;
